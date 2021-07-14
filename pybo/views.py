@@ -1,21 +1,22 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+
 from .models import Question, Answer
 from django.utils import timezone
 # Create your views here.
 
+
 def index(request):
     question_list = Question.objects.order_by('-create_date')
-    context = {'question_list' : question_list}
+    context = {'question_list': question_list}
     return render(request, 'pybo/question_list.html', context)
-    #return HttpResponse("Wellcom pybo에 오신 것을 환영합니다.")
+    # return HttpResponse("Wellcom pybo에 오신 것을 환영합니다.")
     # '-' 기호는 내림차순 정렬
 
 
 def detail(request, question_id):
-    #question = Question.objects.get(id=question_id)
+    # question = Question.objects.get(id=question_id)
     question = get_object_or_404(Question, pk=question_id)
-    context = {'question' : question}
+    context = {'question': question}
     return render(request, 'pybo/question_detail.html', context)
 
 

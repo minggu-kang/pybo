@@ -10,8 +10,8 @@ class Question(models.Model):
 
     def __str__(self):
         return self.subject
-# 답변 모델(테이블)
 
+# 답변 모델(테이블)
 
 
 class Answer(models.Model):
